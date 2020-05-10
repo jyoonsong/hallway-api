@@ -5,3 +5,42 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create([
+    {
+        first_name: "Jaeyoon",
+        last_name: "Song",
+        affiliation: "SNU",
+        email: "song@jaeyoon.io",
+        link: "https://jaeyoon.io"
+    },
+    {
+        first_name: "Thomas",
+        last_name: "Malone",
+        affiliation: "MIT",
+        email: "malone@mit.edu",
+        link: "https://malone.mit.edu"
+    },
+    {
+        first_name: "Juho",
+        last_name: "Kim",
+        affiliation: "KAIST",
+        email: "juhokim@kaist.ac.kr",
+        link: "https://juhokim.com"
+    },
+    {
+        first_name: "Lily",
+        last_name: "Lala",
+        affiliation: "somewhere",
+        email: "something@email.com",
+        link: "https://zoom.link"
+    },
+    {
+        first_name: "Lele",
+        last_name: "Lolo",
+        affiliation: "Haha",
+        email: "where@email.com",
+        link: "https://zoom.link.to.somewhere"
+    }
+
+])

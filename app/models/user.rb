@@ -10,7 +10,4 @@ class User < ApplicationRecord
   has_many :waited_by, class_name: :Wait, foreign_key: :waited_by_id
   has_many :waiters, through: :waited_by, source: :waiting_for
 
-  def request_wait(waiting_for)
-    Wait.create(waited_by_id: self.id, waiting_for_id: waiting_for.id)
-  end
 end
