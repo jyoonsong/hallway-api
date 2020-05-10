@@ -7,4 +7,11 @@ class WaitsController < ApplicationController
         # redirect_back(fallback_location: root_path)과 같이 변경
         # redirect_to controller: 'feeds', action: 'index'
     end
+
+    def destroy
+        user = User.find(params[:id])
+        user.destroy
+        head :no_content, status: :ok
+    end
+
 end
