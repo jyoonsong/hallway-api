@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   scope '/api/v1' do
     resources :users
     resources :waits
+    get '/waits/:user_id/:waiting_for_id', to: 'waits#create'
   end
 end

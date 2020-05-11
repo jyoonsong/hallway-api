@@ -6,11 +6,13 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :affiliation
       t.string :link
+      t.string :image
 
       t.timestamps
     end
     
     change_column :users, :email, :string, :null => true
     change_column :users, :affiliation, :string, :null => true
+    change_column :users, :image, :string, :null => true
   end
 end

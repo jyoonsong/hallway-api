@@ -1,7 +1,8 @@
 class WaitsController < ApplicationController
+    
     def create
         receiver = User.find(params[:waiting_for_id])
-        current_user.request_wait(receiver)
+        User.find(params[:user_id]).request_wait(receiver)
     
         # 다른 page에서도 follow 쓰려면
         # redirect_back(fallback_location: root_path)과 같이 변경
@@ -9,9 +10,8 @@ class WaitsController < ApplicationController
     end
 
     def destroy
-        user = User.find(params[:id])
-        user.destroy
-        head :no_content, status: :ok
+        wait = Wait.where(user_id: params[:user_id], waiting_for_id: params[:waiting_for_id])
+        wait.destroy
     end
 
 end

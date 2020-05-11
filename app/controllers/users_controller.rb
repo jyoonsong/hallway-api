@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
       def index
         users = User.order("created_at DESC")
-        render json: users
+        render 
       end
     
       def create
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
       end
     
       def request_wait(waiting_for)
-        Wait.create(waited_by_id: self.id, waiting_for_id: waiting_for.id)
+        Wait.create(user_id: self.id, waiting_for_id: waiting_for.id) # waited_by_id = user_id
       end
 end
