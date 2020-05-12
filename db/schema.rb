@@ -21,13 +21,21 @@ ActiveRecord::Schema.define(version: 2020_05_09_130839) do
     t.string "email"
     t.string "affiliation"
     t.string "link"
+    t.string "image"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "waits", force: :cascade do |t|
+    t.bigint "waiting_id", null: false
+    t.bigint "waiter_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["waiter_id"], name: "index_waits_on_waiter_id"
+    t.index ["waiting_id"], name: "index_waits_on_waiting_id"
   end
 
+  add_foreign_key "waits", "users", column: "waiter_id"
+  add_foreign_key "waits", "users", column: "waiting_id"
 end

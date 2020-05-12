@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+
   # Waitings stands for users who I am waiting for
   # waitings = Follow.where(wait_id: self.id)
   has_many :is_waiteds, class_name: :Wait, foreign_key: :waiting_id #wait_id

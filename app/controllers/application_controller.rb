@@ -1,29 +1,26 @@
 class ApplicationController < ActionController::API
     protect_from_forgery with: :exception
-    before_action :login_required
+    skip_before_action :verify_authenticity_token
+  helper_method :login!, :logged_in?, :current_user, :authorized_user?, :logout!
 
-    helper_method :current_user
-    helper_method :logged_in?
-
-    def login_required
-      if !logged_in?
-          redirect_to new_session_path
-          # render json: {}, status: :unauthorized
-      end
+    def login!
+        session[:user_id] = @user.id
     end
 
     def logged_in?
-        !!current_user
+        !!session[:user_id]
     end
 
-
     def current_user
-        if session[:user_id]
-          @current_user = User.find(session[:user_id])
-          @current_user
-        else
-          false
-        end
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+
+    def authorized_user?
+        @user == current_user
+    end
+
+    def logout!
+        session.clear
     end
   
     # def set_user
