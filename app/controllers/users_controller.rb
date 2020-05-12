@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
       def index
-        users = User.order("created_at DESC")
-        render 
+        @waiting_for_users = current_user.waits
+        @waited_by_users = current_user.is_waiteds
+        respond_to do |format|
+          format.json 
+        end
       end
     
       def create
