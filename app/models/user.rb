@@ -5,13 +5,13 @@ class User < ApplicationRecord
 
   # Waitings stands for users who I am waiting for
   # waitings = Follow.where(wait_id: self.id)
-  has_many :is_waiteds, class_name: :Wait, foreign_key: :waiting_id #wait_id
-  has_many :waitings, through: :waits, source: :waited
+  has_many :waits, class_name: :Wait, foreign_key: :waiting_id
+  has_many :waitings, through: :waits, source: :waiter
 
   # Waiters stands for users who waits me
   # waiters = Wait.where(is_waited_id: self.id)
-  has_many :waits, class_name: :Wait, foreign_key: :waiter_id
-  has_many :waiters, through: :waiteds, source: :waiter
+  has_many :is_waiteds, class_name: :Wait, foreign_key: :waiter_id #wait_id
+  has_many :waiters, through: :is_waiteds, source: :waiting
 
 
   def request_wait(is_waited_id)
