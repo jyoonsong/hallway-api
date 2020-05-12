@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
       def index
-        @waiting_for_users = current_user.waits
-        @waited_by_users = current_user.is_waiteds
-        respond_to do |format|
-          format.json 
-        end
+        @waiting_for_users = current_user.waiters
+        @waited_by_users = current_user.waitings
+
+        render 'users/index.json.jbuilder'
       end
     
       def create

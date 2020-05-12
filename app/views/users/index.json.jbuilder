@@ -8,7 +8,7 @@ json.waiting_for_users @waiting_for_users do |user|
   json.email user.email
 end
 
-json.waitied_by_users @waited_by_users do |user|
+json.waited_by_users @waited_by_users do |user|
   json.id user.id
   json.first_name user.first_name
   json.last_name user.last_name
