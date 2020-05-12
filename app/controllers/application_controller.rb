@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::API
-    protect_from_forgery with: :exception
-    skip_before_action :verify_authenticity_token
-  helper_method :login!, :logged_in?, :current_user, :authorized_user?, :logout!
+    skip_before_action :verify_authenticity_token, raise: false
+    helper_method :login!, :logged_in?, :current_user, :authorized_user?, :logout!
 
     def login!
         session[:user_id] = @user.id
