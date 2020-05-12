@@ -8,8 +8,19 @@ class UsersController < ApplicationController
       end
     
       def create
-        user = User.create(user_param)
-        render json: user
+        @user = User.new(user_param)
+        if @user.save
+          login!
+          render json: {
+            status: :created,
+            user: @user
+          }
+        else 
+          render json: {
+            status: 500,
+            errors: @user.errors.full_messages
+          }
+        end
       end
     
       def update
@@ -23,12 +34,10 @@ class UsersController < ApplicationController
         user.destroy
         head :no_content, status: :ok
       end
+
+      private
     
       def user_param
-        params.require(:user).permit(:first_name, :last_name, :email, :affilitation, :link)
-      end
-    
-      def request_wait(waiting_for)
-        Wait.create(user_id: self.id, waiting_for_id: waiting_for.id) # waited_by_id = user_id
+        params.require(:user).permit(:first_name, :last_name, :email, :affilitation, :link, :password)
       end
 end
