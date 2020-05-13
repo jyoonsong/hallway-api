@@ -23,8 +23,10 @@ class User < ApplicationRecord
   end
 
   def cancel_wait(is_waited_id)
-      wait = Wait.where(waiter_id: self.id, waiting_id: is_waited_id).first
-      wait.destroy
+      wait = Wait.find_by(waiter_id: self.id, waiting_id: is_waited_id)
+      if wait.present?
+        wait.destroy
+      end
   end
 
 end
