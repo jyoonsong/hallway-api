@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   scope '/api/v1' do
     resources :users
     resources :waits
+
+    get '/waited_by_users', to: 'users#waited_by_users'
     
     post '/waits/:is_waited_id', to: 'waits#create'
     delete '/waits/:is_waited_id', to: 'waits#destroy'
