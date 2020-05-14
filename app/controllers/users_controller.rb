@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
 
     def show
-      user = User.find(params[:user_id])
+      user = User.find(params[:id])
       @waited_by_users = user.waitings
       render 'users/show.json.jbuilder'
     end
