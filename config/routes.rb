@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get '/waited_by_users', to: 'users#waited_by_users'
     
     post '/waits/:is_waited_id', to: 'waits#create'
-    delete '/waits/:is_waited_id', to: 'waits#destroy'
+    delete '/waits/:is_waited_id/destroy', to: 'waits#destroy'
 
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
