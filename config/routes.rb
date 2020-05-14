@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     
     post '/waits/:is_waited_id', to: 'waits#create'
     delete '/waits/:is_waited_id/destroy', to: 'waits#destroy'
+    delete '/waits/:is_waited_id/destroy/greet', to: 'waits#destroy_greet'
 
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'

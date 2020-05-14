@@ -13,4 +13,9 @@ class WaitsController < ApplicationController
         wait.destroy
     end
 
+    def destroy_greet
+        wait = Wait.find_by(waiter_id: params[:is_waited_id], waiting_id: current_user.id)
+        wait.destroy
+    end
+
 end
