@@ -60,3 +60,5 @@ Wait.create([
         waiter_id: 1
     }
 ])
+
+Administrator.create(email: "admin@admin.com", password: "password", first_name: "Admin", last_name: "User")
