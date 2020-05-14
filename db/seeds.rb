@@ -58,7 +58,17 @@ Wait.create([
     {
         waiting_id: 4,
         waiter_id: 1
+    },
+    {
+        waiting_id: 2,
+        waiter_id: 4
+    },
+    {
+        waiting_id: 1,
+        waiter_id: 4
+    },
+    {
+        waiting_id: 2,
+        waiter_id: 3
     }
 ])
-
-Administrator.create(email: "admin@admin.com", password: "password", first_name: "Admin", last_name: "User")
