@@ -9,7 +9,8 @@ class WaitsController < ApplicationController
     end
 
     def destroy
-        current_user.cancel_wait(params[:is_waited_id])
+        wait = Wait.find_by(waiter_id: current_user.id, waiting_id: params[:is_waited_id])
+        wait.destroy
     end
 
 end
