@@ -6,7 +6,6 @@ json.users @waited_by_users do |user|
         json.affiliation user.affiliation
         json.link user.link
         json.image user.image
-        json.email user.email
         if @waiting_for_users.include?(user)
             json.waiting_for true
         else

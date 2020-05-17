@@ -46,6 +46,62 @@ User.create([
         email: "where@email.com",
         link: "https://zoom.link.to.somewhere",
         password_digest: BCrypt::Password.create('password5')
+    },
+    {
+        first_name: "Lf",
+        last_name: "Lolo",
+        affiliation: "Haha",
+        email: "where@email.com",
+        link: "https://zoom.link.to.somewhere",
+        password_digest: BCrypt::Password.create('password6')
+    },
+    {
+        first_name: "Leqwfwfle",
+        last_name: "Lolo",
+        affiliation: "Haha",
+        email: "where@email.com",
+        link: "https://zoom.link.to.somewhere",
+        password_digest: BCrypt::Password.create('password7')
+    },
+    {
+        first_name: "Legwgwegele",
+        last_name: "Lolo",
+        affiliation: "Haha",
+        email: "where@email.com",
+        link: "https://zoom.link.to.somewhere",
+        password_digest: BCrypt::Password.create('password8')
+    },
+    {
+        first_name: "Leqwfqwgewgle",
+        last_name: "Lolo",
+        affiliation: "Haha",
+        email: "where@email.com",
+        link: "https://zoom.link.to.somewhere",
+        password_digest: BCrypt::Password.create('password9')
+    },
+    {
+        first_name: "Leqwfqwgewgle",
+        last_name: "Lolo",
+        affiliation: "Haha",
+        email: "where@email.com",
+        link: "https://zoom.link.to.somewhere",
+        password_digest: BCrypt::Password.create('password10')
+    },
+    {
+        first_name: "asdkafkn",
+        last_name: "Lolo",
+        affiliation: "Haha",
+        email: "where@email.com",
+        link: "https://zoom.link.to.somewhere",
+        password_digest: BCrypt::Password.create('password11')
+    },
+    {
+        first_name: "qflkglekwlgklsd",
+        last_name: "Lolo",
+        affiliation: "Haha",
+        email: "where@email.com",
+        link: "https://zoom.link.to.somewhere",
+        password_digest: BCrypt::Password.create('password12')
     }
 
 ])
@@ -70,5 +126,12 @@ Wait.create([
     {
         waiting_id: 2,
         waiter_id: 3
+    }
+])
+
+Match.create([
+    {
+        match_one_id: 1,
+        match_two_id: 3
     }
 ])

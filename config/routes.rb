@@ -5,11 +5,13 @@ Rails.application.routes.draw do
     resources :users
     resources :waits
 
-    get '/waited_by_users', to: 'users#waited_by_users'
+    get '/greet', to: 'users#greet'
+    get '/approach', to: 'users#approach'
     
     post '/waits/:is_waited_id', to: 'waits#create'
     delete '/waits/:is_waited_id/destroy', to: 'waits#destroy'
-    delete '/waits/:is_waited_id/destroy/greet', to: 'waits#destroy_greet'
+
+    delete '/match/:is_waited_id/', to: 'waits#match'
 
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'

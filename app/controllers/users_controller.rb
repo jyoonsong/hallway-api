@@ -3,21 +3,37 @@ class UsersController < ApplicationController
 
     def index
       @users = User.all
-      @waiting_for_users = current_user.waiters
 
       render 'users/index.json.jbuilder'
+    end
+
+    def approach
+      @users = User.all
+      @waiting_for_users = current_user.waiters
+      @waited_by_users = current_user.waitings
+      @rest = @users - @waiting_for_users - @waited_by_users
+
+      render 'users/approach.json.jbuilder'
     end
 
     def show
       user = User.find(params[:id])
       @waited_by_users = user.waitings
+      @waiting_for_users = current_user.waiters
+
+      Log.create(
+        kind: "click_to_see",
+        content: params[:id].to_s,
+        user_id: current_user.id
+      )
+
       render 'users/show.json.jbuilder'
     end
 
-    def waited_by_users
+    def greet
       @waited_by_users = current_user.waitings
-      @waiting_for_users = current_user.waiters
-      render 'users/waited_by_users.json.jbuilder'
+      # @waiting_for_users = current_user.waiters
+      render 'users/greet.json.jbuilder'
     end
   
     def create
